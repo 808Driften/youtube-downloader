@@ -90,6 +90,7 @@ def download_video(url, download_type, quality=None):
                 'preferredcodec': 'mp3',
                 'preferredquality': '192',
             }] if download_type == "Audio" else [],
+            'ffmpeg_location': './ffmpeg',  # Path to the local FFmpeg binary
         }
 
         if quality and download_type == "Video":
@@ -108,7 +109,6 @@ def download_video(url, download_type, quality=None):
 
     except Exception as e:
         return False, str(e), None
-
 # URL input
 url = st.text_input("Enter YouTube URL", placeholder="https://www.youtube.com/watch?v=...")
 
